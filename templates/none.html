@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Tracking Number</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/track.css') }}">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+<div class="page">
+    <div class="header">
+        <form>
+            <input type="text" id="url-input" name="url" placeholder="введите ваш трек-номер">
+            <button class="btn " type="submit">Отправить</button>
+
+        </form>
+        <div class="header__info">
+            <h2>Информация по треку</h2>
+            <div class="track__number">
+                {{ track }}
+            </div>
+
+
+
+                </div></div>
+                <div class="package__info-error">
+                <div class=" absolute error">
+                    <div class="box__black"> Ошибка 404</div>
+                    <div class="box__green"> посылка с таким трек-номером не найдена</div>
+                </div>
+
+            </div>
+</div>
+</div>
+
+
+{#            Дата:   event['date'] }}<br>#}
+
+{#            Время:   activity['time'] }}<br><br>#}
+
+{##}
+{##}
+{#                <li>Последнее#}
+{#                    местоположение:#}
+{#                </li>#}
+{##}
+{#                <li>Отправитель:   package_name['sender']['name'] }},   package_name['sender']['address'] }}</li>#}
+{#                <li>Получатель:   package_name['receiver']['name'] }},   package_name['receiver']['address'] }}</li>#}
+{#                <li>Метод доставки:   package_name['delivery_method'] }}</li>#}
+{#                <li>Категория:   package_name['category'] }}</li>#}
+{#                <li>Вес:   package_name['weight'] }} кг</li>#}
+{#                <li>Дата отправления:   package_name['origin']['date'] }}</li>#}
+{#                <li>Дата и время последнего обновления:   package_name['last']['date'] }}</li>#}
+{#                </ul>#}
+{#            {% endif %}#}
+{#    <hr>#}
+
+
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const urlInput = document.querySelector('#url-input');
+        const url = urlInput.value.trim();
+        if (url.length > 0) {
+            window.location.href = `${encodeURIComponent(url)}`;
+        }
+    });
+</script>
+</body>
+</html>
