@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Сервис отслеживания посылок</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+<div class="page">
+    <div class="top">
+        <img src="{{ url_for('static', filename='img/main.svg') }}" alt="">
+    </div>
+    <div class="bottom">
+        <div class="bottom__text">
+            <div class="main__text">
+                Сервис отслеживания посылок
+            </div>
+            <div class="small__text">
+                с использованием API АО “Казпочта”
+            </div>
+        </div>
+        <div class="bottom__form">
+            <form>
+                <input type="text" id="url-input" name="url" placeholder="введите ваш трек-номер">
+                <button class="btn " type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const urlInput = document.querySelector('#url-input');
+        const url = urlInput.value.trim();
+        if (url.length > 0) {
+            window.location.href = `${encodeURIComponent(url)}`;
+        }
+    });
+</script>
+</body>
+</html>
